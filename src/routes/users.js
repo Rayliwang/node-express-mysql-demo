@@ -20,7 +20,7 @@ const responseJSON = function(res, ret) {
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   pool.getConnection(function(err, connection) {
-    const { id, name, favator, limit, offset } = req.query;
+    const { id, name, favator, limit = 10, offset = 0, isAsc = false, orderType = 'id' } = req.query;
     let sql = userSQL.queryAll;
     let param = [];
     if (id) {
@@ -37,6 +37,7 @@ router.get('/', function(req, res, next) {
       sql += ' AND favator LIKE ?';
       param.push(`%${favator}%`);
     }
+    sql += ` ORDER BY ${orderType} ${isAsc ? 'ASC' : 'DESC'} LIMIT ${limit} OFFSET ${offset * limit}`
     connection.query(sql, param, function(err, result) {
       const data = result;
       if (result) {

@@ -22,8 +22,13 @@ Based on express and mysql a progress
 | 参数名     | 类型       | 是否必填 | 说明 |
 |:-----------|:-----------|:---------|:-----|
 | id         | int,int... |          |      |
-| name       | Integer    |          |      |
-| favator    | Integer    |          |      |
+| name       | String     |          |      |
+| favator    | String     |          |      |
+| limit      | Int        |          | 请求数量，default 10 |
+| offset     | Int        |          |  偏移量，default 0   |
+| isAsc      | Boolen     |          | false-降序（默认），true-升序 |
+| orderType  | Int        |          | 0-按添加时间（默认）| 
+<!-- | eagerLoading| Boolean   |          | false-仅返回用户列表, true-加载附加列表（默认）| -->
 
 ### Example
 
@@ -37,6 +42,8 @@ Based on express and mysql a progress
 { 
     "code": 100,
     "msg": "操作成功",
+    "total": 2,
+
     "data": [
         {
             "id": 9,
