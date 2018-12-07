@@ -119,7 +119,7 @@ Based on express and mysql a progress
 
 | 参数名     | 类型       | 是否必填 | 说明   |
 |:-----------|:-----------|:---------|:-------|
-| id         | int,int... | YES      | 映射Id |
+| id         | int,int... | YES      |        |
 
 #### Success Response
 
