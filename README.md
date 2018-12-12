@@ -1,4 +1,4 @@
-# node_express_mysql_demo
+# node-express-mysql-demo
 Based on express and mysql a progress
 
 接口目录
@@ -24,10 +24,15 @@ Based on express and mysql a progress
 | id         | int,int... |          |      |
 | name       | String     |          |      |
 | favator    | String     |          |      |
+| contacts   | String     |          |联系方式      |
+| address    | String     |          | 家庭住址     |
+| specal     | String     |          |  特长    |
+| status     | String     |          |  用户状态    |
+| metadata   | String     |          |   备注   |
 | limit      | Int        |          | 请求数量，default 10 |
 | offset     | Int        |          |  偏移量，default 0   |
 | isAsc      | Boolen     |          | false-降序（默认），true-升序 |
-| orderType  | Int        |          | 0-按添加时间（默认）| 
+| orderType  | String     |          | 0-按添加时间（默认）| 
 <!-- | eagerLoading| Boolean   |          | false-仅返回用户列表, true-加载附加列表（默认）| -->
 
 ### Example
@@ -70,8 +75,13 @@ Based on express and mysql a progress
 
 ```javascript 
 {
-	"favator": "123",
-	"name": "小红"
+    "name": "小红", // Required
+    "favator": "123",
+    "phone": "12345678912", // Required 联系方式
+    "address": "123", // Required 家庭住址
+    "special": "", //特长
+    "status": 0,
+    "metadata": ""
 }
 ```
 
@@ -99,8 +109,13 @@ Based on express and mysql a progress
 ```javascript 
 { // /users/7
 
-	"favator": "12345",
-	"name": "小红"
+	"name": "小红", // 姓名
+    "favator": "123",
+    "phone": "12345678912", //联系方式
+    "address": "123", //家庭住址
+    "special": "", //特长
+    "status": 0,
+    "metadata": ""
 }
 ```
 

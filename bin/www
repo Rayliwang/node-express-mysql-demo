@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 require('babel-register')({
-  presets: ['env']
+  "presets":["env", "es2015","stage-0"],
+  "plugins":["transform-runtime"]
 });
 var app = require('../app');
 var debug = require('debug')('weapp-node:server');
